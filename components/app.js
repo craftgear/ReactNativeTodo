@@ -165,7 +165,7 @@ class App extends Component {
         />
         <View style={styles.content}>
         <ListView
-          keyboardShouldPersistTaps='handled'
+          keyboardShouldPersistTaps="always"
           style={styles.list}
           enableEmptySections
           dataSource={this.state.dataSource}
