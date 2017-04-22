@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Switch, TouchableOpacity, TextInput, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Switch, TouchableOpacity,
+  TextInput,
+  Button,
+ } from 'react-native';
 
 class Row extends Component {
   render() {
@@ -31,19 +34,19 @@ class Row extends Component {
 
     const doneButton = (
       <View>
-      <ScrollView
-        keyboardShouldPersistTaps='handled'
-        keyboardDismissMode='interactive'
-      >
+        <TouchableOpacity style={styles.textWrap} onLongPress={ () => {
+          console.log('LongPress');
+        }}>
+        <Text style={[styles.text, complete && styles.complete]}>LongPressButton</Text>
+      </TouchableOpacity>
         <TouchableOpacity style={styles.done} onPress={
           () => { this.props.onToggleEdit(false); console.log('done pressed') }
         }>
           <Text style={styles.doneText}>Save</Text>
         </TouchableOpacity>
-
-      </ScrollView>
       </View>
     );
+
     return (
       <View style={styles.container} >
         <Switch
@@ -52,6 +55,7 @@ class Row extends Component {
         />
         {this.props.editing ? editingComponent : textComponent }
         {this.props.editing ? doneButton : removeButton }
+
       </View>
     )
   }

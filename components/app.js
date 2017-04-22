@@ -7,7 +7,7 @@ import {
   ListView,
   Keyboard,
   AsyncStorage,
-  ActivityIndicator
+  ActivityIndicator,
 } from 'react-native';
 import Header from './header';
 import Footer from './footer';
